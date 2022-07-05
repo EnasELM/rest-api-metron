@@ -21,8 +21,9 @@ module.exports = async function(context, req) {
         }
         const { blog, id } = context.bindingData.blog
         const entity = {
-            PartitonKey: { '_': blog },
-            RowKey: { "_": new Date().getTime().toString() },
+            PartitionKey: { '_': blog },
+            // RowKey: { "_": new Date().getTime().toString() },'
+            RowKey: { "_": id.toString() },
 
         }
         if (title) entity.title = { _: title }

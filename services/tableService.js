@@ -32,7 +32,7 @@ const queryEntities = (tableName, query) => {
 
 const updateEntities = (tableName, entity) => {
     return new Promise((resolve, reject) => {
-        tableSvc.insertEntity(tableName, entity, (error, result, respons) => {
+        tableSvc.mergeEntity(tableName, entity, (error, result, respons) => {
             if (error) {
                 reject(error);
             } else {

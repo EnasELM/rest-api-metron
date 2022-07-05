@@ -7,7 +7,7 @@
             "methods": [
                 "get"
             ],
-            "route": "CreateGet/{blog}"
+            "route": "GetPosts/{blog}"
         },
 
         {
