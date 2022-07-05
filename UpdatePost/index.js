@@ -19,7 +19,7 @@ module.exports = async function(context, req) {
             };
             return
         }
-        const { blog, id } = context.bindingData.blog
+        const { blog, id } = context.bindingData
         const entity = {
             PartitionKey: { '_': blog },
             // RowKey: { "_": new Date().getTime().toString() },'
@@ -27,7 +27,7 @@ module.exports = async function(context, req) {
 
         }
         if (title) entity.title = { _: title }
-        if (content) entity.content = { _: content }
+        if (content) entity.content = { _: content };
         await ("testInputData", entity)
     } catch (error) {
         context.res = {

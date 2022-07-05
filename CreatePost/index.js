@@ -20,7 +20,7 @@ module.exports = async function(context, req) {
             return
         }
         const entity = {
-            PartitonKey: { '_': blog },
+            PartitionKey: { '_': blog },
             RowKey: { "_": new Date().getTime().toString() },
             title: { "_": title },
             content: { "_": content }
