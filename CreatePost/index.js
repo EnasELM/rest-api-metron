@@ -12,6 +12,7 @@ module.exports = async function(context, req) {
             return
         }
         const { blog, title, content } = req.body
+        console.log(req.body, 'req.body')
         if (!blog || !title || !content) {
             context.res = {
                 status: 400,
@@ -24,6 +25,7 @@ module.exports = async function(context, req) {
             RowKey: { "_": new Date().getTime().toString() },
             title: { "_": title },
             content: { "_": content }
+
         }
         const result = await insertEntities("testInputData", entity);
         context.res = {

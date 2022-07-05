@@ -7,11 +7,11 @@ const tableSvc = azure.createTableService(
 
 const insertEntities = (tableName, entity) => {
     return new Promise((resolve, reject) => {
-        tableSvc.insertEntity(tableName, entity, { echoContent: true, payloadFormat: "application/json;odata=nometadata" }, (error, result, respons) => {
+        tableSvc.insertEntity(tableName, entity, { echoContent: true, payloadFormat: "application/json;odata=nometadata" }, (error, result, response) => {
             if (error) {
                 reject(error);
             } else {
-                resolve(respons.body)
+                resolve(response.body)
             }
         })
     })
@@ -19,11 +19,11 @@ const insertEntities = (tableName, entity) => {
 
 const queryEntities = (tableName, query) => {
     return new Promise((resolve, reject) => {
-        tableSvc.queryEntities(tableName, query, null, { payloadformat: "application/json;odata=nometadata" }, (error, result, respons) => {
+        tableSvc.queryEntities(tableName, query, null, { payloadFormat: "application/json;odata=nometadata" }, (error, result, response) => {
             if (error) {
                 reject(error);
             } else {
-                resolve(respons.body)
+                resolve(response.body)
             }
         })
     })
@@ -32,7 +32,7 @@ const queryEntities = (tableName, query) => {
 
 const updateEntities = (tableName, entity) => {
     return new Promise((resolve, reject) => {
-        tableSvc.mergeEntity(tableName, entity, (error, result, respons) => {
+        tableSvc.mergeEntity(tableName, entity, (error, result, response) => {
             if (error) {
                 reject(error);
             } else {

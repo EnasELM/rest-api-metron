@@ -2,7 +2,7 @@ const azure = require('azure-storage');
 const { queryEntities } = require("../services/tableService")
 module.exports = async function(context, req) {
 
-
+    console.log('hello')
 
     try {
         const blog = context.bindingData.blog
