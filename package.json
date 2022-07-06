@@ -1,15 +1,30 @@
 {
   "name": "rest-api-metron",
   "version": "1.0.0",
-  "description": "",
   "scripts": {
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
     "@azure/data-tables": "^13.1.2",
+    "@azure/identity": "^2.0.5",
+    "@azure/schema-registry": "^1.1.0",
     "azure-storage": "^2.10.7",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "tedious": "^14.6.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnasELM/rest-api-metron.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EnasELM/rest-api-metron/issues"
+  },
+  "homepage": "https://github.com/EnasELM/rest-api-metron#readme",
+  "description": ""
 }
