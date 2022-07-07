@@ -1,6 +1,14 @@
 const azure = require('azure-storage');
 const { updateEntities } = require("../services/tableService")
 module.exports = async function(context, req) {
+    function ascii_to_hex(str) {
+        var arr1 = [];
+        for (var n = 0, l = str.length; n < l; n++) {
+            var hex = Number(str.charCodeAt(n)).toString(16);
+            arr1.push(hex);
+        }
+        return arr1.join('');
+    }
     try {
 
 
@@ -11,24 +19,24 @@ module.exports = async function(context, req) {
             };
             return
         }
-        const { title, content } = req.body
-        if (!title && !content) {
+        const { InputData } = req.body
+        if (!InputData) {
             context.res = {
                 status: 400,
-                body: "please pass title or content"
+                body: "please pass InputData"
             };
             return
         }
         const { blog, id } = context.bindingData
         const entity = {
-            PartitionKey: { '_': blog },
-            // RowKey: { "_": new Date().getTime().toString() },'
-            RowKey: { "_": id.toString() },
+            PartitionKey: { _: blog },
+            RowKey: { _: id.toString() },
 
         }
-        if (title) entity.title = { _: title }
-        if (content) entity.content = { _: content };
-        await ("testInputData", entity)
+        let val = ascii_to_hex(InputData)
+        if (InputData) entity.InputData = { _: val }
+
+        await updateEntities("testInputData", entity)
     } catch (error) {
         context.res = {
             status: 500,

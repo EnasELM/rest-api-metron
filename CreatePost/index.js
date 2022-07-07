@@ -1,7 +1,7 @@
 const azure = require('azure-storage');
 const { insertEntities } = require("../services/tableService")
 module.exports = async function(context, req) {
-    // hexString = yourNumber.toString(16);
+
     function ascii_to_hex(str) {
         var arr1 = [];
         for (var n = 0, l = str.length; n < l; n++) {
@@ -33,7 +33,6 @@ module.exports = async function(context, req) {
             return
         }
 
-        console.log(arr, 'arr')
         const entity = {
             PartitionKey: { '_': blog },
             RowKey: { "_": new Date().getTime().toString() },
